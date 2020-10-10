@@ -11,7 +11,7 @@
 
     <div fxFlex>
         <mat-list cols="2" rowHeght="200px">
-            <mat-list-item *ngFor="let dish of dishes">
+            <mat-list-item *ngFor="let dish of dishes" (click)="onSelect(dish)">
                 <img matListAvatar src={{dish.image}} alt={{dish.name}}>
                 <h1 matLine>{{dish.name | uppercase}}</h1>
                 <p matLine>
@@ -22,23 +22,7 @@
         </mat-list>
     </div>
 
-    <div fxFlex *ngIf="selectedDish">
-        <mat-card>
-            <mat-card-header>
-                <mat-card-title>
-                    <h3>{{selectedDish.name | uppercase }}</h3>
-                </mat-card-title>
-            </mat-card-header>
-            <img mat-card-image src={{selectedDish.image>
-            <mat-card-ng-content>
-                <p>{{selectedDish.description}}</p>
-            </mat-card-ng-content>
-            <mat-card-actions>
-                <button mat-button>LIKE</button>
-                <button mat-button>SHARE</button>
-            
-            </mat-card-actions>
-        </mat-card>
+    
 
-    </div>
+    <app-dishdetail [dish]="selectedDish"></app-dishdetail>
 </div>
